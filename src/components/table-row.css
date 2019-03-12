@@ -1,0 +1,38 @@
+.TableRow-header-container {
+  display: grid;
+}
+.TableRow-header {
+  font-weight: bold;
+  background-color: #e7e7e7;
+  padding: 5px;
+  border: 1px solid #808080;
+}
+.TableRow-header:nth-child(odd),
+.TableRow-data:nth-child(odd) {
+  border-left: none;
+  border-right: none;
+}
+.TableRow-header:last-child {
+  border-radius: 0px 5px 0px 0px;
+  border-right: 1px solid #808080;
+}
+.TableRow-header:first-child {
+  border-left: 1px solid #808080;
+  border-radius: 5px 0px 0px 0px;
+}
+
+.TableRow-data-container {
+  display: grid;
+}
+.TableRow-data {
+  padding: 5px;
+  border: 1px solid #808080;
+  border-top: none;
+}
+.TableRow-data:first-child {
+  border-left: 1px solid #808080;
+  border-radius: 0px 0px 0px 0px;
+}
+.TableRow-data:last-child {
+  border-right: 1px solid #808080;
+}
