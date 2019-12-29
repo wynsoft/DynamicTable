@@ -177,6 +177,24 @@ class App extends Component {
         address: "43 Fodo Parkway, Canton, Ohio"
       },
       { salary: 68900.0, fieldType: "currency" }
+    ],
+    [
+      { id: 19 },
+      { firstName: "Cuca" },
+      { lastName: "Estevan" },
+      {
+        address: "143 Fodo Blvd., Canton, Ohio"
+      },
+      { salary: 60900.0, fieldType: "currency" }
+    ],
+    [
+      { id: 20 },
+      { firstName: "Dudley" },
+      { lastName: "Rueben" },
+      {
+        address: "1443-A St. Cloud St., Canton, Ohio"
+      },
+      { salary: 168900.0, fieldType: "currency" }
     ]
   ];
 
@@ -280,7 +298,7 @@ class App extends Component {
             Change the data in the text below. Pay close attention to the data
             attributes.
           </p>
-          <div className="grid">
+          <div className="flex-grid">
             <div>
               <h5>Headers:</h5>
               <textarea value={headers} onChange={this.handleHeaderChange} />
