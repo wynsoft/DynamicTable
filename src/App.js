@@ -265,6 +265,13 @@ class App extends Component {
     };
   }
 
+  handleChangePagesize = () => {
+    this.setState({
+      ...this.state,
+      pageSize: this.refs.inputPageSize.value
+    });
+  };
+
   render() {
     let headers = JSON.stringify(this.state.headers, null, 2);
     let data = JSON.stringify(this.state.data, null, 2);
@@ -297,6 +304,17 @@ class App extends Component {
           <p>
             Change the data in the text below. Pay close attention to the data
             attributes.
+          </p>
+          <p>
+            <label htmlFor="pageSize">Change page size: </label>
+            <input
+              id="pageSize"
+              ref="inputPageSize"
+              size="3"
+              maxLength="2"
+              value={this.state.pageSize}
+              onChange={this.handleChangePagesize}
+            />
           </p>
           <div className="flex-grid">
             <div>
