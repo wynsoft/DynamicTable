@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DynamicTable from "./DynamicTable";
+import DynamicTable from "../lib/DynamicTable";
 import "./Tester.css";
 
 class Tester extends Component {
