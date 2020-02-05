@@ -63,19 +63,19 @@ This is a array of array objects that contain the data for the table. Each colum
 
 ### pageSize
 
-This sets the number of rows to display per page. Default is 10.
+This sets the number of rows to display per page. Pass it within `{}`. Default is 10.
 
 ### currentPage
 
-This sets the current page to display. Default is 1.
+This sets the current page to display. Pass it with `{}`. Default is 1.
 
 ### sortOn
 
-This sets the `fieldName` to sort on. It's `optional` but when used must be one one the field names from the data object.
+This sets the `fieldName` to sort on. It's `required` and must be one of the field names from the data object.
 
 ### sortOrder
 
-This sets the sort order. It's `optional` and is set to `ASC` by default. Possible choices are `ASC` and `DESC`.
+This sets the sort order. It's `required` and can be either `ASC` and `DESC`.
 
 ## Usage
 
@@ -91,8 +91,8 @@ Now add the component to the app:
 <DynamicTable
     headers = {<headers-object>}
     data = {<data-object>}
-    pageSize = "10",
-    currentPage = "1",
+    pageSize = {10},
+    currentPage = {1},
     sortOn = "id",
     sortOrder = "ASC"
 >
