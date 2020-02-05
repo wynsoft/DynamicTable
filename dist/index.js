@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Table from "./components/dynamic-table";
-import "./DynamicTable.css";
+import "./index.css";
 import Paginator from "./components/paginator";
 
-const DynamicTable = props => {
+const App = props => {
   const [page, setPage] = useState(1);
   useEffect(() => {
     setPage(props.currentPage);
@@ -32,4 +32,4 @@ const DynamicTable = props => {
   }));
 };
 
-export default DynamicTable;
+export default App;
