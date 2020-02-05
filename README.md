@@ -82,7 +82,7 @@ This sets the sort order. It's `required` and can be either `ASC` and `DESC`.
 First import the component into your project:
 
 ```
-import DynamicTable from 'dynamic-table';
+import DynamicTable from '@wynsoft/dynamic-table';
 ```
 
 Now add the component to the app:
