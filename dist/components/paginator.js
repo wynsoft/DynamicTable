@@ -7,6 +7,7 @@ class Paginator extends Component {
     this.state = {
       currentPage: 1
     };
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   componentDidMount() {

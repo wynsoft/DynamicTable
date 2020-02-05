@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import "./table-row.css";
 
 class TableRow extends Component {
+  constructor() {
+    super();
+    this.handleHeaderClick = this.handleHeaderClick.bind(this);
+  }
+
   handleHeaderClick(fieldName, idx, sortOrder) {
     this.props.passHeaderClick(fieldName, idx, sortOrder);
   }
