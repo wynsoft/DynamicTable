@@ -2,10 +2,6 @@ body {
   text-align: center;
 }
 
-.App {
-  width: 90%;
-  margin: 0 auto;
-}
 .component-container {
   zoom: 1;
   overflow-x: auto;

@@ -9,6 +9,12 @@ class Paginator extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      currentPage: this.props.currentPage
+    });
+  }
+
   handlePageClick = event => {
     this.setState({ currentPage: +event.target.innerText });
     this.props.passClick(+event.target.innerText);

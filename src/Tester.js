@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import DynamicTable from "./components/dynamic-table";
-import Paginator from "./components/paginator";
-import "./App.css";
+import DynamicTable from "./DynamicTable";
+import "./Tester.css";
 
-class App extends Component {
+class Tester extends Component {
   headers = [
     { title: "ID", width: "40px", align: "center", fieldName: "id" },
     {
@@ -21,6 +20,7 @@ class App extends Component {
     { title: "Address", width: "400px", align: "left", fieldName: "address" },
     { title: "Salary", width: "100px", align: "right", fieldName: "salary" }
   ];
+
   data = [
     [
       { id: 1 },
@@ -200,69 +200,28 @@ class App extends Component {
 
   constructor() {
     super();
+
     this.state = {
-      pageSize: 10,
-      currentPage: 1,
       headers: this.headers,
       data: this.data,
-      sortOn: "id",
-      sortOrder: "ASC"
+      pageSize: 10
     };
+
     this.handleHeaderChange = this.handleHeaderChange.bind(this);
     this.handleDataChange = this.handleDataChange.bind(this);
-    this.handlePageClick = this.handlePageClick.bind(this);
+    this.handleChangePagesize = this.handleChangePagesize.bind(this);
   }
 
   handleHeaderChange(event) {
-    this.setState({ headers: JSON.parse(event.target.value) });
+    this.setState({ ...this.state, headers: JSON.parse(event.target.value) });
     event.preventDefault();
   }
 
   handleDataChange(event) {
-    this.setState({ data: JSON.parse(event.target.value) });
-  }
-
-  handlePageClick = page => {
-    this.setState({ currentPage: page });
-  };
-
-  handleHeaderClick = (fieldName, idx, sortOrder) => {
-    const tmpData = this.state.data;
-    const currentSortOrder = this.state.sortOrder;
-    const nextSortOrder = currentSortOrder === "ASC" ? "DESC" : "ASC";
-    const sortedData = tmpData.sort(this.sortOn(fieldName, idx, sortOrder));
     this.setState({
-      data: sortedData,
-      sortOrder: nextSortOrder,
-      sortOn: fieldName
+      data: JSON.parse(event.target.value)
     });
-  };
-
-  sortOn(fieldName, idx, order) {
-    var sortOrder = 1;
-
-    if (order === "DESC") {
-      sortOrder = -1;
-    }
-    return function(a, b) {
-      if (sortOrder === -1) {
-        if (a[idx][fieldName] > b[idx][fieldName]) {
-          return -1;
-        }
-        if (a[idx][fieldName] < b[idx][fieldName]) {
-          return 1;
-        }
-        return 0;
-      } else {
-        if (a[idx][fieldName] < b[idx][fieldName]) {
-          return -1;
-        }
-        if (a[idx][fieldName] > b[idx][fieldName]) {
-          return 1;
-        }
-        return 0;
-      }
-    };
+    event.preventDefault();
   }
 
   handleChangePagesize = () => {
@@ -276,28 +235,17 @@ class App extends Component {
     let headers = JSON.stringify(this.state.headers, null, 2);
     let data = JSON.stringify(this.state.data, null, 2);
     return (
-      <div className="App">
+      <div className="test-container">
         <h1>Dynamic Table Component</h1>
         <h4>(This is a work in progress. More features to come.)</h4>
-        <div className="component-container" onChange={this.handlePageClick}>
-          <DynamicTable
-            headers={this.state.headers}
-            data={this.state.data}
-            pageSize={this.state.pageSize}
-            currentPage={this.state.currentPage}
-            passHeaderClick={this.handleHeaderClick}
-            sortInfo={{
-              sortOn: this.state.sortOn,
-              sortOrder: this.state.sortOrder
-            }}
-          />
-          <Paginator
-            pageSize={this.state.pageSize}
-            totalSize={this.state.data.length}
-            currentPage={this.state.currentPage}
-            passClick={this.handlePageClick}
-          />
-        </div>
+        <DynamicTable
+          headers={this.state.headers}
+          data={this.state.data}
+          pageSize={this.state.pageSize}
+          currentPage={1}
+          sortOn="id"
+          sortOrder="ASC"
+        />
         <br />
         <div className="test-container">
           <h3>Testing the Component:</h3>
@@ -315,6 +263,11 @@ class App extends Component {
               value={this.state.pageSize}
               onChange={this.handleChangePagesize}
             />
+            <p>
+              NOTE: If you don't see any data it's because you previously
+              selected a page that is higher that what's' available now. Just
+              click on the first page and the data will appear.
+            </p>
           </p>
           <div className="flex-grid">
             <div>
@@ -332,4 +285,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Tester;
