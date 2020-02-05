@@ -1,0 +1,44 @@
+.Paginator-container {
+  display: grid;
+  grid-auto-columns: 40px;
+  grid-auto-flow: column;
+}
+.Paginator-page {
+  padding: 5px;
+  border: 1px solid #808080;
+  text-align: center;
+  background-color: #e7e7e7;
+  border-top: none;
+  cursor: pointer;
+}
+.Paginator-page:nth-child(odd) {
+  border-left: none;
+  border-right: none;
+}
+.Paginator-page:last-child {
+  border-radius: 0px 0px 5px 0px;
+  border-right: 1px solid #808080;
+}
+.Paginator-page.active {
+  padding: 5px;
+  margin-left: -5px;
+  width: 35px;
+  border: 1px solid #444;
+  border-top: none;
+  background-color: #fff;
+  z-index: 100;
+  border-radius: 0px 0px 5px 5px;
+}
+.Paginator-page:first-child {
+  border-left: 1px solid #808080;
+  border-radius: 0px 0px 5px 5px;
+  margin-left: 0px;
+  width: 35px;
+}
+.Paginator-page:first-child .active {
+  padding: 5px;
+  border: 1px solid #444;
+  border-top: none;
+  background-color: #fff;
+  z-index: 100;
+}

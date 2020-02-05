@@ -18,9 +18,7 @@ class DynamicTable extends Component {
   }
 
   getFieldIndex(fieldName) {
-    return this.props.headers.findIndex(
-      header => header.fieldName === fieldName
-    );
+    return this.props.headers.findIndex(header => header.fieldName === fieldName);
   }
 
   componentDidMount() {
@@ -34,11 +32,7 @@ class DynamicTable extends Component {
         sortOrder: this.props.sortInfo.sortOrder || "ASC"
       }
     });
-    this.handleHeaderClick(
-      this.props.sortInfo.sortOn,
-      this.getFieldIndex(this.props.sortInfo.sortOn),
-      this.props.sortInfo.sortOrder
-    );
+    this.handleHeaderClick(this.props.sortInfo.sortOn, this.getFieldIndex(this.props.sortInfo.sortOn), this.props.sortInfo.sortOrder);
   }
 
   handleHeaderClick(fieldName, idx, sortOrder) {
@@ -61,22 +55,27 @@ class DynamicTable extends Component {
     if (order === "DESC") {
       sortOrder = -1;
     }
-    return function(a, b) {
+
+    return function (a, b) {
       if (sortOrder === -1) {
         if (a[idx][fieldName] > b[idx][fieldName]) {
           return -1;
         }
+
         if (a[idx][fieldName] < b[idx][fieldName]) {
           return 1;
         }
+
         return 0;
       } else {
         if (a[idx][fieldName] < b[idx][fieldName]) {
           return -1;
         }
+
         if (a[idx][fieldName] > b[idx][fieldName]) {
           return 1;
         }
+
         return 0;
       }
     };
@@ -84,18 +83,17 @@ class DynamicTable extends Component {
 
   render() {
     if (this.props.headers && this.props.data) {
-      return (
-        <TableRow
-          headers={this.props.headers}
-          data={this.props.data}
-          pageSize={this.props.pageSize}
-          currentPage={this.props.currentPage}
-          passHeaderClick={this.handleHeaderClick}
-          sortInfo={this.state.sortInfo}
-        />
-      );
+      return React.createElement(TableRow, {
+        headers: this.props.headers,
+        data: this.props.data,
+        pageSize: this.props.pageSize,
+        currentPage: this.props.currentPage,
+        passHeaderClick: this.handleHeaderClick,
+        sortInfo: this.state.sortInfo
+      });
     }
   }
+
 }
 
 export default DynamicTable;

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./table-row.css";
 
 class TableRow extends Component {
-  handleHeaderClick = (fieldName, idx, sortOrder) => {
+  handleHeaderClick(fieldName, idx, sortOrder) {
     this.props.passHeaderClick(fieldName, idx, sortOrder);
-  };
+  }
 
   render() {
     let tableHeaders = "";
