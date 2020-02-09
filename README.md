@@ -1,6 +1,6 @@
 # Dynamic Table
 
-This library provide a React JS based Table component which has pagination and sorting. The headers and data have to be set dynamically.
+This library provides a React JS based Table component which has pagination and sorting. The headers and data have to be set dynamically.
 
 # Installation
 
